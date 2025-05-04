@@ -98,26 +98,56 @@ Captures feedback from users about properties.
 * `rating`: Numeric rating (e.g., 1–5)
 * `comment`: Text feedback
 
+# Feature Breakdown
+**User Management**
+Handles registration, authentication, and profile updates for users through endpoints like `/users/`.
+This feature ensures secure access and allows both guests and hosts to manage their personal and account-related information effectively.
+
+**Property Management**
+Manages creation, retrieval, updating, and deletion of property listings via endpoints such as `/properties/`.
+It enables hosts to list accommodations and keep property details current, forming the core of the platform's marketplace functionality.
+
+**Booking System**
+Facilitates booking operations through endpoints like `/bookings/`, allowing users to reserve properties and manage details like check-in/check-out.
+This feature ensures smooth coordination between guests and hosts, supporting the transactional flow of the platform.
+
+**Payment Processing**
+Processes booking payments through the `/payments/` endpoint, recording transaction details securely.
+It supports a critical part of the platform’s business logic, enabling financial transactions between users and the platform.
+
+**Review System**
+Lets users post, view, and manage property reviews using endpoints such as `/reviews/`.
+This builds trust within the community by enabling feedback and ratings, helping future users make informed decisions.
+
+**Data Optimization**
+Implements database indexing and caching strategies to improve performance and scalability.
+Efficient data retrieval and reduced load times ensure a smooth and responsive user experience, especially under high traffic.
+
+**API Documentation**
+Uses OpenAPI, Django REST Framework, and GraphQL for clearly structured and flexible API access.
+This facilitates easy integration for frontend teams and third-party developers, speeding up development and ensuring maintainability.
+
+
 # API Security
-*** Authentication
+**Authentication**
 Implementation: Token-based authentication (e.g., JWT or DRF TokenAuth).
 
-*** Authorization
+**Authorization**
 Implementation: Role-based access control (RBAC) to distinguish permissions (e.g., host vs. guest).
 
-*** Input Validation & Sanitization
+**Input Validation & Sanitization**
 Implementation: Django’s built-in validators and serializers.
 
-*** Secure Payment Integration
+**Secure Payment Integration**
 Implementation: Use third-party gateways (e.g., Stripe) via secure APIs.
 
-*** Session & Token Security
+*** Session & Token Security**
 Implementation: Short-lived access tokens, refresh tokens, secure cookies, and CSRF protection.
 
-*** Logging & Monitoring
+*** Logging & Monitoring**
 Implementation: Audit logs for key actions, security alerts, and anomaly detection.
 
-*** Database Security
+*** Database Security**
 Implementation: Role-based DB access, parameterized queries, regular backups.
 
 | Area                    | Why Security Matters                                                             |
