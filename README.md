@@ -27,7 +27,76 @@ DB Admin: Manages schema and performance.
 DevOps: Oversees deployment and scalability.
 QA Engineer: Ensures reliability and correctness.
 
+# Database Design
+**User**
+Represents a person using the platform, either as a **host** or **guest** (or both).
+**Key Fields:**
+* `id`: Unique identifier for the user
+* `email`: User’s email address (used for login)
+* `password`: Hashed password for authentication
+* `name`: Full name of the user
+* `is_host`: Boolean to indicate if the user can list properties
 
+**Relationships:**
+* A **user** can own **multiple properties**
+* A **user** can make **multiple bookings**
+* A **user** can write **multiple reviews**
+* A **user** can make **multiple payments**
+
+**Property**
+Represents a listing available for rent on the platform.
+
+**Key Fields:**
+* `id`: Unique identifier for the property
+* `title`: Name or title of the listing
+* `description`: Detailed information about the property
+* `location`: Address or general location
+* `price_per_night`: Nightly rental cost
+
+**Relationships:**
+* A **property** is **owned by one user** (host)
+* A **property** can have **many bookings**
+* A **property** can receive **many reviews**
+
+3. **Booking**
+Represents a reservation made by a guest for a specific property.
+
+**Key Fields:**
+* `id`: Unique identifier for the booking
+* `user_id`: The guest who made the booking
+* `property_id`: The property that was booked
+* `start_date`: Check-in date
+* `end_date`: Check-out date
+
+**Relationships:**
+* A **booking** is made by **one user**
+* A **booking** is for **one property**
+* A **booking** can have **one payment**
+
+
+**Payment**
+Handles financial transactions for bookings.
+
+**Key Fields:**
+* `id`: Unique identifier for the payment
+* `booking_id`: Associated booking
+* `amount`: Total amount paid
+* `status`: Payment status (e.g., pending, completed, failed)
+* `timestamp`: When the payment was processed
+
+**Relationships:**
+* A **payment** is associated with **one booking**
+* A **user** indirectly relates to a payment via a booking
+
+**Review**
+Captures feedback from users about properties.
+
+**Key Fields:**
+* `id`: Unique identifier for the review
+* `user_id`: Reviewer (guest)
+* `property_id`: Property being reviewed
+* `rating`: Numeric rating (e.g., 1–5)
+* `comment`: Text feedback
 
 # API Security
 *** Authentication
