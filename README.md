@@ -159,5 +159,22 @@ Implementation: Role-based DB access, parameterized queries, regular backups.
 | **Reviews**             | To maintain platform integrity and avoid spam or malicious content.              |
 | **System Availability** | To ensure reliable uptime and prevent abuse or overload from malicious actors.   |
 
+# CI/CD Pipeline
+**Overview and Importance**
+CI/CD (Continuous Integration and Continuous Deployment) pipelines are automated workflows that streamline the process of integrating code changes, testing, and deploying them to production. In the context of the Airbnb Clone backend project, CI/CD pipelines are crucial for ensuring rapid, reliable, and error-free delivery of updates to the application.
 
+**Why CI/CD Is Important for This Project:**
+* **Consistency:** Automates builds and deployments, reducing human errors.
+* **Speed:** Enables rapid iteration and continuous delivery of new features and bug fixes.
+* **Quality Assurance:** Automatically runs tests on every change, ensuring code reliability before deployment.
+* **Scalability:** Supports collaboration across team roles (backend devs, QA, DevOps) by integrating and validating contributions seamlessly.
+* **Deployment Automation:** Frees up developers from manual deployment steps and reduces downtime risks.
 
+**Recommended Tools for CI/CD Pipelines:**
+* **GitHub Actions:** For automating testing, linting, and deployments directly from the GitHub repository.
+* **Docker:** Ensures consistent development and production environments by containerizing the backend.
+* **Docker Compose:** Useful for orchestrating multi-container setups (e.g., app + database + Redis).
+* **Celery + Redis:** For managing asynchronous tasks, easily integrated into deployment workflows.
+* **PostgreSQL:** Can be included in test environments to validate DB migrations and queries.
+* **Heroku / AWS / GCP / DigitalOcean:** For cloud deployment, can be triggered automatically from CI/CD pipelines.
+* **pytest / coverage:** To run automated tests and measure code coverage as part of the pipeline.
